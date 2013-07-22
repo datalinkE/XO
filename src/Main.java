@@ -9,5 +9,15 @@ public class Main {
     public static void main(String[] args) {
         Game g = new Game();
         g.redrawBoard();
+        while(true)
+        {
+            for(char p: g.players)
+            {
+                System.out.println("Player " + p);
+                Cell cur = g.takeInput();
+                cur.setFigure(p);
+                g.redrawBoard();
+            }
+        }
     }
 }

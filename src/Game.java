@@ -19,26 +19,14 @@ public class Game {
         return false;
     }
 
-    public void RedrawBoard()
+    public void redrawBoard()
     {
-
-        for(int i = 0; i < board.Width()*2+1; i++)
-            System.out.print('-');
-        System.out.println();
-
-        for(int x = 0; x < board.Height(); x++)
+        for(int x = 0; x < board.height(); x++)
         {
-            System.out.print('|');
-            for(int y = 0; y < board.Width(); y++)
+            for(int y = 0; y < board.width(); y++)
             {
-                  System.out.print(board.CellAt(x,y).GetFigure());
-                  System.out.print('|');
+                  board.cellAt(x, y).draw();
             }
-            System.out.println();
-
-
-            for(int i = 0; i < board.Width()*2+1; i++)
-                System.out.print('-');
             System.out.println();
         }
     }

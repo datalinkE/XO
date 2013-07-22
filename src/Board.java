@@ -30,39 +30,19 @@ public class Board {
         }
     }
 
-    public int Width()
+    public int width()
     {
         return width;
     }
 
-    public int Height()
+    public int height()
     {
         return height;
     }
 
-    public Cell CellAt(int x, int y)
+    public Cell cellAt(int x, int y)
     {
         int pos = y*width + x;
         return cells.get(pos);
-    }
-
-    public Cell GetRight(Cell c)
-    {
-         return null;
-    }
-
-    public Cell GetRBot(Cell c)
-    {
-        return null;
-    }
-
-    public Cell GetBot(Cell c)
-    {
-        return null;
-    }
-
-    public Cell GetLBot(Cell c)
-    {
-        return null;
     }
 }

@@ -16,28 +16,35 @@ public class Cell {
         this.y = y;
     }
 
-    public int GetX()
+    public int getX()
     {
         return x;
     }
 
-    public int GetY()
+    public int getY()
     {
         return y;
     }
 
-    public void SetFigure(char player)
+    public void setFigure(char player)
     {
          figure = player;
     }
 
-    public char GetFigure()
+    public char getFigure()
     {
         return figure;
     }
 
-    public boolean IsSet(char player)
+    public boolean isSet(char player)
     {
          return figure == player;
+    }
+
+    public void draw()
+    {
+        System.out.print("[");
+        System.out.print(figure);
+        System.out.print("]");
     }
 }

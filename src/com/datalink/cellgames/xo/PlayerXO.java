@@ -14,7 +14,7 @@ public class PlayerXO extends AbstractPlayerXO{
 
     public PlayerXO(char c)
     {
-       super(c);
+       figure = c;
     }
 
     public Cell takeInput(Board board)

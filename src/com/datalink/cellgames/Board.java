@@ -89,12 +89,13 @@ public class Board {
         return result;
     }
 
-    public List<Cell> rightDiaLine(Cell c)
+    public List<Cell> leftDiaLine(Cell c)
     {
         List<Cell> result = new ArrayList<Cell>();
         int x = c.getX();
         int y = c.getY();
-        int deltaDia = (int) Math.round(Math.sqrt( x*x +y*y));
+        int deltaDia = (int) Math.round(Math.sqrt( height()*height() + width()*width()));
+
         for(int i = -deltaDia; i < deltaDia;    i++)
         {
             Cell resCell =  cellAt(x + i, y + i);
@@ -106,18 +107,20 @@ public class Board {
         return result;
     }
 
-    public List<Cell> leftDiaLine(Cell c)
+    public List<Cell> rightDiaLine(Cell c)
     {
         List<Cell> result = new ArrayList<Cell>();
         int x = c.getX();
         int y = c.getY();
-        int deltaDia = (int) Math.round(Math.sqrt( x*x +y*y));
+        int deltaDia = (int) Math.round(Math.sqrt( height()*height() + width()*width()));
+
         for(int i = -deltaDia; i < deltaDia;    i++)
         {
             Cell resCell =  cellAt(x - i, y + i);
             if(resCell != null)
             {
                 result.add(resCell);
+                System.out.println(resCell);
             }
         }
         return result;

@@ -7,12 +7,7 @@ package com.datalink.cellgames.xo;
  */
 public abstract class AbstractPlayerXO implements IPlayerXO {
 
-    private char figure;
-
-    public AbstractPlayerXO(char c)
-    {
-        figure = c;
-    }
+    protected char figure;
 
     public String Name()
     {

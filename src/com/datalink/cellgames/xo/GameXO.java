@@ -14,7 +14,7 @@ public class GameXO {
     public final IPlayerXO[] players =
             {
                 new PlayerXO('X'),
-                new PlayerXO('O')
+                new CompPlayerXO('O')
             };
 
     private Board board;
@@ -35,22 +35,30 @@ public class GameXO {
             list = board.horizontalLine(c);
 
             if(hasWinnerEdge(list, c.getFigure()))
+            {   System.out.println("horizontal");
                 return true;
+            }
 
             list = board.verticalLine(c);
 
             if(hasWinnerEdge(list, c.getFigure()))
+            {   System.out.println("vertical");
                 return true;
+            }
 
             list = board.leftDiaLine(c);
 
             if(hasWinnerEdge(list, c.getFigure()))
+            {   System.out.println("leftDia");
                 return true;
+            }
 
             list = board.rightDiaLine(c);
 
             if(hasWinnerEdge(list, c.getFigure()))
+            {   System.out.println("rightDia");
                 return true;
+            }
         }
 
         return false;

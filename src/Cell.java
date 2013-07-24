@@ -1,9 +1,7 @@
 /**
- * Created with IntelliJ IDEA.
- * User: Spectre
+ * User: datalink
  * Date: 11.07.13
  * Time: 14:43
- * To change this template use File | Settings | File Templates.
  */
 public class Cell {
     public final static char NOT_SET = ' ';
@@ -26,9 +24,14 @@ public class Cell {
         return y;
     }
 
-    public void setFigure(char player)
-    {
-         figure = player;
+    public boolean setFigure(char player)
+    {   if(isSet())
+            return false;
+        else
+        {
+            figure = player;
+            return true;
+        }
     }
 
     public char getFigure()
@@ -36,15 +39,19 @@ public class Cell {
         return figure;
     }
 
-    public boolean isSet(char player)
+    public boolean isSet()
     {
-         return figure == player;
+         return !(figure == Cell.NOT_SET);
     }
 
     public void draw()
     {
         System.out.print("[");
-        System.out.print(figure);
+        System.out.print(getFigure());
         System.out.print("]");
+    }
+
+    public String toString() {
+        return String.format("Cell[x: %d, y: %d, figure: %c]", x, y, figure);
     }
 }

@@ -1,9 +1,7 @@
 /**
- * Created with IntelliJ IDEA.
- * User: Spectre
+ * User: datalink
  * Date: 10.07.13
  * Time: 17:26
- * To change this template use File | Settings | File Templates.
  */
 public class Main {
     public static void main(String[] args) {
@@ -13,10 +11,23 @@ public class Main {
         {
             for(char p: g.players)
             {
-                System.out.println("Player " + p);
-                Cell cur = g.takeInput();
-                cur.setFigure(p);
-                g.redrawBoard();
+                boolean turnComplete = false;
+                while(!turnComplete)
+                {
+                    System.out.println("Player " + p);
+                    Cell cur = g.takeInput();
+                    turnComplete = cur.setFigure(p);
+                    if(!turnComplete)
+                        System.out.println("Cell was not free, try again");
+
+                    g.redrawBoard();
+
+                    if(g.isWinner(cur))
+                    {
+                        System.out.println("Player " + p +" wins!");
+                        return;
+                    }
+                }
             }
         }
     }

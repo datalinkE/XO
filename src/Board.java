@@ -1,11 +1,9 @@
 import java.util.ArrayList;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Spectre
+ * User: datalink
  * Date: 11.07.13
  * Time: 14:43
- * To change this template use File | Settings | File Templates.
  */
 public class Board {
     private ArrayList<Cell> cells;
@@ -21,11 +19,11 @@ public class Board {
         this.width = width;
         this.height = height;
 
-        for(int i =0; i< width; i++)
+        for(int y =0; y < height; y++)
         {
-            for(int j =0; j< height; j++)
+            for(int x =0; x< width; x++)
             {
-                cells.add(new Cell(i,j));
+                cells.add(new Cell(x, y));
             }
         }
     }
@@ -42,7 +40,15 @@ public class Board {
 
     public Cell cellAt(int x, int y)
     {
-        int pos = y*width + x;
-        return cells.get(pos);
+        if(x>=0 && y>=0 && x<width() && y<height())
+        {
+            int pos = y*width + x;
+            Cell res = cells.get(pos);
+
+            //System.out.println("Cell at " + x + y + " " + res);
+            return res;
+        }
+        else
+            return null;
     }
 }

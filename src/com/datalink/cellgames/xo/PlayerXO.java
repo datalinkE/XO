@@ -10,19 +10,49 @@ import com.datalink.cellgames.*;
 
 import java.util.Scanner;
 
-public class PlayerXO extends AbstractPlayerXO{
+public class PlayerXO extends AbstractPlayerXO {
 
     public PlayerXO(char c)
     {
        figure = c;
     }
 
-    public Cell takeInput(Board board)
+    public Cell takeInput(Board board)  throws FewTurnsBackException
     {
-        System.out.println("takeInput");
+        System.out.println("Print x y values, or 'rev' to revert some turns");
 
         int x = -1, y = -1;
         Scanner sc = new Scanner(System.in);
+
+        if(sc.hasNext("rev"))
+        {
+            sc.next();
+            System.out.println("enter the number of turns you want to revert");
+            int n = -1;
+
+            while(n < 0 && sc.hasNext())
+            {
+                if(sc.hasNextInt())
+                {
+                    n = sc.nextInt();
+                    if(n < 0)
+                    {
+                        System.out.println("N should be positive");
+                        n = -1;
+                    }
+                    else
+                        System.out.println("got N");
+                }
+                else
+                {
+                    sc.next();
+                    System.out.println("bad N string, try again");
+                }
+            }
+
+            throw new FewTurnsBackException( n );
+        }
+
         while(x < 0 && sc.hasNext())
         {
             if(sc.hasNextInt())

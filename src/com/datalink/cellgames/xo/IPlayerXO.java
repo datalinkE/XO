@@ -12,5 +12,5 @@ public interface IPlayerXO {
 
     public String Name();
     public char Figure();
-    public Cell takeInput(Board board);
+    public Cell takeInput(Board board) throws FewTurnsBackException;
 }
